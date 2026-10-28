@@ -1,0 +1,32 @@
+global_input_var:
+  dimension_num = 2
+  DNO_M = 15
+  DNO_Mb = 15
+  Dealiase_flag = true
+  t_total = 32.8869655030683
+  dt = 0.0313209195267317
+  mean_depth = 92.831853071796
+  gravity = 0.999999999999997
+  NL_Ta = 31.3209195267317
+  filter = exp, 36, 36
+
+input_var_2d:
+  Lx = 6.2831853071796
+  Nx = 64
+  x0 = 1
+  initial_conditions = airy, 0.062831853071796007, 6.2831853071796004, 0
+  boundary_conditions = period
+
+input_dimensionless_char_var:
+  L_char = 1
+  T_char = 0.31927542840705
+  M_char = 2.5
+
+varying_bottom:
+  time_dependency = false
+  beta = 30
+  gamma = 0
+
+save_data_control:
+  f_out = 3.1927542840705
+  out_file_path = /home/zyq/DNO_Ocean/Results

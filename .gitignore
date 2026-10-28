@@ -1,0 +1,32 @@
+# 构建产物 / 可执行文件
+*.o
+*.obj
+*.a
+*.so
+*.exe
+test_process_input_var
+dno_sim
+dno_test
+
+# 大文件 / 压缩包 / 视频
+*.zip
+*.tar.gz
+*.mp4
+
+# 大数据文本（test_DNO 下的模拟数据）
+test_DNO/beta.txt
+test_DNO/eta.txt
+test_DNO/xi.txt
+test_DNO/EVI.txt
+
+# 运行结果目录
+Results/
+
+# 编辑器 / IDE
+.vscode/
+.idea/
+*.swp
+
+# 系统残留
+*:Zone.Identifier
+.DS_Store

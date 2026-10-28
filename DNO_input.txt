@@ -1,0 +1,42 @@
+# var_class:
+#   var_key1 = var_value1
+#   var_key2 = var_value2
+#   ...
+
+global_input_var: # ->GIV
+  dimension_num = 2 # must be set as 2 or 3
+  DNO_M = 15
+  DNO_Mb = 15
+  Dealiase_flag = true
+  t_total = 10.5 # total simulation time(s)
+  dt = 0.01 # delta t(s)
+  mean_depth = 92.831853071796 # mean water depth(m)
+  gravity = 9.81 # g acc-default:9.81(m/s^2)
+  filter = exp, 36, 36 #alpha, m
+  NL_Ta = 10. # optional - non-linear adjustment-time;if NL_Ta==0, don't use.
+input_var_2d : # optional - use if dimension_num == 2 ->IV2D
+  Lx = 6.2831853071796 # m
+  Nx = 64
+  x0 = 1. # m
+  initial_conditions = Airy, 0.062831853071796, 6.2831853071796, 0 #optional(zeros init if empty) Airy, a(m), wave_length(m), theta_offset(dimensionless)
+  boundary_conditions = period # period for periodic or wall for vertical side wall 
+#input_var_3d: # optional - use if dimension_num == 3 ->IV3D
+  #Lx = 2E2 # m
+  #Ly = 32.5 # m
+  #Nx = 256
+  #Ny = 320
+  #x0 = -12 # m
+  #y0 = -12.2 # m
+  #initial_conditions = Airy, +0.01591549430919, 10, 0 # Airy, a(m), wave_length(m), theta_offset
+input_dimensionless_char_var: # optional - if define this, program will use these characteristic var to non-dimensional 
+  L_char = 1. # m
+  T_char = 0.31927542840705 # s
+  M_char = 2.5 # kg
+varying_bottom:# optional - use this var_class if not flat bottom with constant depth.(bottom varying with space.)
+  time_dependency = false # if time_dependency, bottom varying with time and space; else bottom only varying with space.
+  beta =   30 # x(m) t(s) beta(m) if dimension_num == 2 :should have x;if dimension_num == 3 :should have x, y
+  gamma = 0 # optional - use if time_dependency , set partial_beta_partial_t; x(m) y(m) t(s) gamma(m/s) 2D:x,t;3D:x,y,t;
+save_data_control:
+  f_out = 10 # Hz(1/s) sample rate for recording information of wave
+  out_file_path = /home/zyq/DNO_Ocean/Results
+  
